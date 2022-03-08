@@ -1,17 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Pokemon Selector!</h1>
+    <selected-pokemon v-if="selectedPokemon" :pokemon="selectedPokemon"></selected-pokemon>
+    <pokemon-list :allPokemon="allPokemon"></pokemon-list>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PokemonList from "./components/PokemonList.vue";
+import SelectedPokemon from "./components/SelectedPokemon.vue";
+import {eventBus} from "./main.js";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    "pokemon-list": PokemonList,
+    "selected-pokemon" : SelectedPokemon
+  },
+  data() {
+    return {
+      allPokemon: [],
+      selectedPokemon: null,
+    };
+  },
+  methods: {
+    fetchPokemon: function () {
+      fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+        .then((res) => res.json())
+        .then((data) => (this.allPokemon = data.results));
+    },
+    fetchPokemonDetail: function(url){
+      fetch(url)
+      .then(res => res.json())
+      .then(data => (this.selectedPokemon = data));
+    }
+  },
+    mounted() {
+    this.fetchPokemon();
+    eventBus.$on('send-pokemon', (pokemon) =>{
+      this.fetchPokemonDetail(pokemon.url);
+    })
   }
 }
 </script>
