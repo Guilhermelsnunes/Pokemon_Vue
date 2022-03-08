@@ -26,3 +26,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### To create another one similiar 
 vue create pokemon_vue
+![Screenshot 2022-03-08 at 07 46 20](https://user-images.githubusercontent.com/93665740/157190720-909d3882-1728-4208-884a-1e01d4d73fa6.png)
+![Screenshot 2022-03-08 at 07 46 33](https://user-images.githubusercontent.com/93665740/157190734-ba1dc2d4-ba6d-4e03-9d82-92c684187b57.png)
