@@ -24,7 +24,7 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-### To create another one similiar 
+### To create another similiar app 
 vue create pokemon_vue
 
 ![Screenshot 2022-03-08 at 07 50 21](https://user-images.githubusercontent.com/93665740/157191089-119439d0-1cb4-4e38-aba8-ad0be3bd0c23.png)
